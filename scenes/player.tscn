@@ -1,22 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba0b1xjdoj6sv"]
+[gd_scene load_steps=6 format=3 uid="uid://ba0b1xjdoj6sv"]
 
 [ext_resource type="Script" uid="uid://xtxy1kj8lwwc" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://xhja5ur15cd2" path="res://assets/child.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cm68hynyi6ss7" path="res://assets/childLeft.png" id="3_qhqgy"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_u8vuu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qhqgy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-scale = Vector2(1.8800008, 1.8800008)
+scale = Vector2(3, 3)
 collision_layer = 2
 script = ExtResource("1_3vyb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(16.511133, 16.511133)
-texture = SubResource("CanvasTexture_u8vuu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.36170262, 1)
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Timer" type="Timer" parent="."]

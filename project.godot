@@ -15,6 +15,10 @@ run/main_scene="uid://bl7t6b74txl3v"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DemonState="*res://scripts/demon_state.gd"
+
 [input]
 
 jump={
@@ -40,3 +44,7 @@ right={
 [layer_names]
 
 2d_physics/layer_2="Player"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
