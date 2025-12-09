@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbjgws2xc8jai"]
+
+[ext_resource type="Script" uid="uid://npk1n68c2gy4" path="res://scripts/portal.gd" id="1_v0xau"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ppl40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppl40"]
+size = Vector2(6, 22)
+
+[node name="Portal" type="Area2D"]
+scale = Vector2(-6.950077, -6.950077)
+collision_mask = 2
+script = ExtResource("1_v0xau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6.3200006, 22.120003)
+texture = SubResource("CanvasTexture_ppl40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ppl40")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

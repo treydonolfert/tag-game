@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmchdrm425luh"]
+
+[ext_resource type="Script" uid="uid://ba5edyafovh40" path="res://scripts/demon.gd" id="1_ye80u"]
+[ext_resource type="PackedScene" uid="uid://dvy0ioutg8n0o" path="res://scenes/vine.tscn" id="2_3t42y"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ye80u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye80u"]
+size = Vector2(26, 26)
+
+[node name="Demon" type="CharacterBody2D" groups=["Demon"]]
+collision_mask = 2
+script = ExtResource("1_ye80u")
+BulletScene = ExtResource("2_3t42y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(26.76167, 26.76167)
+texture = SubResource("CanvasTexture_ye80u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ye80u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
