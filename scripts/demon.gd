@@ -50,6 +50,9 @@ func fire(bullet_speed):
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
 	bullet.set_direction(direction, bullet_speed)
+	var time = randf_range(0.5, 3)
+	timer.wait_time = time
+	timer.start()
 	can_fire = false
 
 

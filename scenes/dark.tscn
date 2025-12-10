@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr8jgi51fbjg3"]
+[gd_scene load_steps=7 format=3 uid="uid://dr8jgi51fbjg3"]
 
 [ext_resource type="PackedScene" uid="uid://ba0b1xjdoj6sv" path="res://scenes/player.tscn" id="1_v645r"]
 [ext_resource type="Script" uid="uid://dc22jcjwx4gd6" path="res://scripts/dark.gd" id="1_xugpr"]
 [ext_resource type="PackedScene" uid="uid://cmchdrm425luh" path="res://scenes/demon.tscn" id="2_xugpr"]
 [ext_resource type="PackedScene" uid="uid://dk420okf5qb37" path="res://scenes/dark_block.tscn" id="3_w67e6"]
+[ext_resource type="PackedScene" uid="uid://hkbjl3bopnac" path="res://scenes/portal_2.tscn" id="5_w67e6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gg2qb"]
 
@@ -22,6 +23,14 @@ position_smoothing_enabled = true
 position = Vector2(0, 129)
 shape = SubResource("WorldBoundaryShape2D_gg2qb")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(1005, -6)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D"]
+position = Vector2(0, 129)
+shape = SubResource("WorldBoundaryShape2D_gg2qb")
+
 [node name="Demon" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_xugpr")]
 position = Vector2(-484, 0)
 player = NodePath("../Player")
@@ -29,3 +38,35 @@ player = NodePath("../Player")
 [node name="DarkBlock" parent="." instance=ExtResource("3_w67e6")]
 position = Vector2(302, -130)
 scale = Vector2(12.040003, 1.5200009)
+
+[node name="DarkBlock2" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(0, -430)
+
+[node name="DarkBlock3" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(0, -762.99994)
+
+[node name="DarkBlock4" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(-435, -1026)
+
+[node name="DarkBlock5" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(162, -1123)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-626, 0)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 129)
+shape = SubResource("WorldBoundaryShape2D_gg2qb")
+
+[node name="DarkBlock6" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(565, -1337)
+
+[node name="DarkBlock7" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(146, -1487)
+
+[node name="DarkBlock8" parent="." instance=ExtResource("3_w67e6")]
+position = Vector2(0, -1713)
+
+[node name="Portal2" parent="." instance=ExtResource("5_w67e6")]
+position = Vector2(0, -1854.9999)
